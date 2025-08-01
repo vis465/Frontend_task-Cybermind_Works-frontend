@@ -15,7 +15,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { IconCalendar, IconChevronDown } from '@tabler/icons-react';
 import axios from 'axios';
 
-const backendurl="http://localhost:3000"
+const backendurl=process.env.NEXT_PUBLIC_API_URL;
 interface JobFormValues {
   title: string;
   companyName: string;

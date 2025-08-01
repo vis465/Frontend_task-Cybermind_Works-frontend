@@ -60,7 +60,7 @@ export default function HomePage() {
 });
 
 
-  const backend = "http://localhost:3000";
+  const backend = process.env.NEXT_PUBLIC_API_URL;;
 
   useEffect(() => {
     const fetchJobs = async () => {
