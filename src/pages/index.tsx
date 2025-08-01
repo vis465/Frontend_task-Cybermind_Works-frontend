@@ -94,15 +94,15 @@ const staticjobdata=[
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get(`${backend}/jobs`);
-        setJobs(response.data || staticjobdata);
+        // const response = await axios.get(`${backend}/jobs`);
+        setJobs(staticjobdata);
       } catch (error) {
         console.error("Error fetching jobs:", error);
       }
     };
 
     fetchJobs();
-  }, [backend]);
+  }, []);
  const filteredJobs = jobs.filter((job) => {
   const matchesKeyword = filters.keyword === '' || job.title.toLowerCase().includes(filters.keyword.toLowerCase());
   const matchesLocation = filters.location === '' || job.location === filters.location;
