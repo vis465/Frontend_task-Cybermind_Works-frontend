@@ -23,15 +23,13 @@ interface Job {
   title: string;
   experience: string;
   type: string;
-  salary: string;
-  logo: string;
-  salaryMin:string;
-  salaryMax:string;
-  description:string;
-  deadline:string;
-  Maxexp:number,
-  Minexp:number,
-  location:string
+  salaryMin: string;
+  salaryMax: string;
+  description: string;
+  deadline: string;
+  Maxexp: number;
+  Minexp: number;
+  location: string;
 }
 
 export default function JobCard({ job }: { job: Job }) {
@@ -54,7 +52,7 @@ export default function JobCard({ job }: { job: Job }) {
     >
       {/* Logo & Badge */}
       <Group justify="space-between" mb="sm">
-        <Image src={job.logo} alt={job.company} w={50} radius="md" />
+      
         <Badge
           color="blue"
           radius="md"

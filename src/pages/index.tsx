@@ -26,16 +26,46 @@ interface Job {
   title: string;
   experience: string;
   type: string;
-  salary: string;
-  logo: string;
-  salaryMin:string;
-  salaryMax:string;
-  description:string;
-  deadline:string;
-  Maxexp:number,
-  Minexp:number,
-  location:string
+  salaryMin: string;
+  salaryMax: string;
+  description: string;
+  deadline: string;
+  Maxexp: number;
+  Minexp: number;
+  location: string;
 }
+
+const staticjobdata: Job[] = [
+  {
+    id: 1,
+    company: "ama",
+    title: "fsd",
+    experience: "1-4",
+    deadline: "2025-08-07T18:30:00.000Z",
+    description: "sasa",
+    location: "Bangalore",
+    type: "FullTime",
+    Minexp: 1,
+    Maxexp: 3,
+    salaryMin: "333",
+    salaryMax: "1200000"
+  },
+  {
+    id: 2,
+    company: "amazon",
+    title: "fikter1",
+    experience: "1-3",
+    deadline: "2025-08-08T18:30:00.000Z",
+    description: "theroahu",
+    location: "Hyderabad",
+    type: "FullTime",
+    Minexp: 1,
+    Maxexp: 3,
+    salaryMin: "10",
+    salaryMax: "100"
+  }
+];
+
 
 const navigationLinks = [
   { label: "Home", href: "/" },
@@ -61,34 +91,7 @@ export default function HomePage() {
   keyword: '',
 });
 
-const staticjobdata=[
-    {
-        "id": 1,
-        "companyName": "ama",
-        "title": "fsd",
-        "deadline": "2025-08-07T18:30:00.000Z",
-        "description": "sasa",
-        "location": "Bangalore",
-        "type": "FullTime",
-        "Minexp": "1",
-        "Maxexp": "3",
-        "salaryMin": 333,
-        "salaryMax": 1200000
-    },
-    {
-        "id": 2,
-        "companyName": "amazon",
-        "title": "fikter1",
-        "deadline": "2025-08-08T18:30:00.000Z",
-        "description": "theroahu",
-        "location": "Hyderabad",
-        "type": "FullTime",
-        "Minexp": "1",
-        "Maxexp": "3",
-        "salaryMin": 10,
-        "salaryMax": 100
-    }
-]
+
   const backend = process.env.NEXT_PUBLIC_API_URL;;
 
   useEffect(() => {
