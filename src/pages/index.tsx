@@ -8,13 +8,13 @@ import {
   Grid,
   Group,
   ScrollArea,
-  Text,
+  
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-
+import Image from 'next/image';
 import CreateJobModal from "@/components/applycard";
 import JobFilters from "@/components/JobFilters";
 import JobCard from "@/components/JobCard";
@@ -28,11 +28,13 @@ interface Job {
   type: string;
   salary: string;
   logo: string;
-  salaryMin: string;
-  salaryMax: string;
-  description: string;
-  deadline: string;
-  location: string;
+  salaryMin:string;
+  salaryMax:string;
+  description:string;
+  deadline:string;
+  Maxexp:number,
+  Minexp:number,
+  location:string
 }
 
 const navigationLinks = [
@@ -50,7 +52,7 @@ export default function HomePage() {
     useDisclosure(false);
   const [
     drawerOpened,
-    { open: openDrawer, close: closeDrawer, toggle: toggleDrawer },
+    { close: closeDrawer, toggle: toggleDrawer },
   ] = useDisclosure(false);
  const [filters, setFilters] = useState({
   location: '',
@@ -59,21 +61,48 @@ export default function HomePage() {
   keyword: '',
 });
 
-
+const staticjobdata=[
+    {
+        "id": 1,
+        "companyName": "ama",
+        "title": "fsd",
+        "deadline": "2025-08-07T18:30:00.000Z",
+        "description": "sasa",
+        "location": "Bangalore",
+        "type": "FullTime",
+        "Minexp": "1",
+        "Maxexp": "3",
+        "salaryMin": 333,
+        "salaryMax": 1200000
+    },
+    {
+        "id": 2,
+        "companyName": "amazon",
+        "title": "fikter1",
+        "deadline": "2025-08-08T18:30:00.000Z",
+        "description": "theroahu",
+        "location": "Hyderabad",
+        "type": "FullTime",
+        "Minexp": "1",
+        "Maxexp": "3",
+        "salaryMin": 10,
+        "salaryMax": 100
+    }
+]
   const backend = process.env.NEXT_PUBLIC_API_URL;;
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         const response = await axios.get(`${backend}/jobs`);
-        setJobs(response.data);
+        setJobs(response.data || staticjobdata);
       } catch (error) {
         console.error("Error fetching jobs:", error);
       }
     };
 
     fetchJobs();
-  }, []);
+  }, [backend]);
  const filteredJobs = jobs.filter((job) => {
   const matchesKeyword = filters.keyword === '' || job.title.toLowerCase().includes(filters.keyword.toLowerCase());
   const matchesLocation = filters.location === '' || job.location === filters.location;
@@ -108,7 +137,7 @@ export default function HomePage() {
       >
         <Container size="xl" py="sm">
           <Group justify="space-between" h="100%">
-            <img src={JobPortalLogo.src} alt="Logo" height={50} width={50} />
+<Image src={JobPortalLogo} alt="Logo" width={100} height={40} />
 
             <Group h="100%" gap={32} visibleFrom="sm">
               {navigationLinks.map((link) => (
@@ -213,7 +242,8 @@ export default function HomePage() {
       {/* Jobs Grid */}
       <Container size="xl" py="md">
         <Grid gutter="xl">
-          {filteredJobs.map((job) => (
+          {filteredJobs.map((
+            job) => (
   <Grid.Col span={3} key={job.id}>
     <JobCard job={job} />
   </Grid.Col>

@@ -8,8 +8,22 @@ import {
 } from '@mantine/core';
 import { IconSearch, IconMapPin, IconUsers } from '@tabler/icons-react';
 import { useState } from 'react';
+interface FiltersProps {
+  filters: {
+    location: string;
+    type: string;
+    salaryRange: number[];
+    keyword: string;
+  };
+  setFilters: React.Dispatch<React.SetStateAction<{
+    location: string;
+    type: string;
+    salaryRange: number[];
+    keyword: string;
+  }>>;
+}
 
-export default function JobFilters() {
+export default function JobFilters({ filters, setFilters }: FiltersProps) {
   const [salaryRange, setSalaryRange] = useState<[number, number]>([50000, 80000]);
 
   return (

@@ -8,12 +8,10 @@ import {
   Stack,
   
 } from '@mantine/core';
-import { rem } from '@mantine/core';
+
 
 import {
   IconBuilding,
-  IconCalendarTime,
-  IconBriefcase,
   IconUser,
   IconLayersOff,
 } from '@tabler/icons-react';
