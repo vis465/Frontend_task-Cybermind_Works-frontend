@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "company": "Amazon",
+    "title": "Full Stack Developer",
+    "experience": "1–3 yr Exp",
+    "type": "Onsite",
+    "salary": "12LPA",
+    "logo": "/logos/amazon.png"
+  },
+  {
+    "id": 2,
+    "company": "Tesla",
+    "title": "Node Js Developer",
+    "experience": "1–3 yr Exp",
+    "type": "Onsite",
+    "salary": "12LPA",
+    "logo": "/logos/tesla.png"
+  },
+  {
+    "id": 3,
+    "company": "Synergy",
+    "title": "UX/UI Designer",
+    "experience": "1–3 yr Exp",
+    "type": "Onsite",
+    "salary": "12LPA",
+    "logo": "/logos/synergy.png"
+  }
+]

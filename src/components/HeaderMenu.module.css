@@ -1,0 +1,55 @@
+.header {
+  height: 80px;
+  padding-left: var(--mantine-spacing-md);
+  padding-right: var(--mantine-spacing-md);
+  border: none;
+  background-color: white;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-3));
+  font-weight: 500;
+  font-size: var(--mantine-font-size-md);
+  transition: color 0.2s ease;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: 48px;
+    width: 100%;
+    border-radius: var(--mantine-radius-md);
+    margin: 2px 0;
+    padding: 0 var(--mantine-spacing-md);
+  }
+
+  @mixin hover {
+    color: light-dark(#667eea, #8c9eff);
+  }
+}
+
+.activeLink {
+  color: light-dark(#667eea, #8c9eff) !important;
+  font-weight: 600;
+}
+
+.subLink {
+  width: 100%;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  border-radius: var(--mantine-radius-md);
+
+  @mixin hover {
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+  }
+}
+
+.dropdownFooter {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+  margin: calc(var(--mantine-spacing-md) * -1);
+  margin-top: var(--mantine-spacing-sm);
+  padding: var(--mantine-spacing-md) calc(var(--mantine-spacing-md) * 2);
+  padding-bottom: var(--mantine-spacing-xl);
+  border-top: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+}
